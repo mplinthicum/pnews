@@ -12,11 +12,14 @@ api_key = config['api']['api_key']
 parser = argparse.ArgumentParser()
 parser.add_argument('-q', '--query')
 parser.add_argument('-s', '--site')
+parser.add_argument('-t', '--titles', action='store_true')
 
 args = parser.parse_args()
 
 site = args.site
 query = args.query
+show_titles = args.titles
+
 
 # call api
 news = NewsApiClient(api_key=api_key)
@@ -26,4 +29,8 @@ if query == 'top':
 else:
     headlines = news.get_everything(q=query, sources=site, language='en')
 
-print(json.dumps(headlines, sort_keys=True, indent=2))
+if show_titles:
+    for article in headlines['articles']:
+        print(article['title'])
+else:
+    print(json.dumps(headlines, sort_keys=True, indent=2))
