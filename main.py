@@ -1,5 +1,6 @@
 import argparse
 import configparser
+import json
 from newsapi import NewsApiClient
 
 # read api key from config file
@@ -25,4 +26,4 @@ if query == 'top':
 else:
     headlines = news.get_everything(q=query, sources=site, language='en')
 
-print(headlines)
+print(json.dumps(headlines, sort_keys=True, indent=2))
