@@ -6,9 +6,8 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-newsapi = "*"
-newsapi-newsapiclient = "*"
 newsapi-python = "*"
+configparser = "*"
 
 [requires]
 python_version = "3.7"
