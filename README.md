@@ -15,7 +15,7 @@ Generate an API key from https://newsapi.org/
 
 ### Create your config file
 
-Create a config file named `api.config` in the root directory in the following format:
+Create a config file named `secret.cfg` in the root directory in the following format:
 
 ```
 [api]
@@ -29,7 +29,7 @@ Don't check your API key into github please.
 Command:
 
 ```
-pipenv run python main.py -s bbc-news -q top
+pipenv run python pnews.py -s bbc-news -q top
 ```
 
 Sample Output:
