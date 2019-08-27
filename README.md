@@ -35,46 +35,33 @@ pipenv run python pnews.py -s bbc-news -q top
 Sample Output:
 
 ```
-Top articles from bbc-news
---------------------------
-Prince Andrew defends Epstein relationship
-http://www.bbc.co.uk/news/uk-49460263
+Top news articles from bbc-news
+-------------------------------
 
+Australian writer faces spying charges in China
+-----------------------------------------------
+URL: http://www.bbc.co.uk/news/world-australia-49479020
+Author: BBC News
+Publish Date: 2019-08-27T00:33:33Z
+Description: Australia says it has serious concerns for Yang Hengjun who has been detained in Beijing since January.
 
-Hong Kong police fire tear gas in fresh clashes
-http://www.bbc.co.uk/news/world-asia-china-49457920
+Dutch doctor on trial in euthanasia case
+----------------------------------------
+URL: http://www.bbc.co.uk/news/world-europe-49478304
+Author: BBC News
+Publish Date: 2019-08-27T00:08:58Z
+Description: It is the first euthanasia case in the Netherlands involving a patient suffering from Alzheimer's.
 
+The village surviving a drought on cave water
+---------------------------------------------
+URL: http://www.bbc.co.uk/news/49436917
+Author: BBC News
+Publish Date: 2019-08-26T23:08:53Z
+Description: In Indonesia's East Java province, government water trucks only deliver once or twice a month.
 
-Why is the Amazon rainforest so important?
-http://www.bbc.co.uk/news/science-environment-49452736
-
-
-EU 'willing to listen' to Johnson's Brexit ideas
-http://www.bbc.co.uk/news/uk-politics-49458293
-
-
-Ashes: Australia aim to put Ashes beyond England - in-play clips, radio & text
-http://www.bbc.co.uk/sport/live/cricket/47325093
-
-
-BA strike sparks five days of flight cancellations
-http://www.bbc.co.uk/news/uk-49458342
-
-
-Nasa 'probing first allegation of space crime'
-http://www.bbc.co.uk/news/world-49457912
-
-
-Trump escalates China trade war with tariff hikes
-http://www.bbc.co.uk/news/business-49455503
-
-
-'First vape death in the US' recorded in Illinois
-http://www.bbc.co.uk/news/world-us-canada-49452256
-
-
-Brazil sends army to tackle Amazon fires
-http://www.bbc.co.uk/news/world-latin-america-49452789
+.
+.
+.
 ```
 
 A list of sources can be found at https://newsapi.org/sources
