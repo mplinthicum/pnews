@@ -24,44 +24,47 @@ api_key = API_KEY
 
 Don't check your API key into github please.
 
-### Run the script
+### Script parameters
+|Full Parameter|Shorthand|Description|Default|
+|--------------|---------|-----------|-------|
+|--query|-q|Topic to search for|Stories for all topics|
+|--site|-s|News site to query from|Stories for all sites|
+|--page|-p|Number of stories to display|5|
+
+### Example
 
 Command:
 
 ```
-pipenv run python pnews.py -s bbc-news -q top
+pipenv run python pnews.py -s bbc-news -q climate -p 3
 ```
 
 Sample Output:
 
 ```
-Top news articles from bbc-news
--------------------------------
+Top 3 articles about climate from bbc-news
+------------------------------------------
 
-Australian writer faces spying charges in China
------------------------------------------------
-URL: http://www.bbc.co.uk/news/world-australia-49479020
-Author: BBC News
-Publish Date: 2019-08-27T00:33:33Z
-Description: Australia says it has serious concerns for Yang Hengjun who has been detained in Beijing since January.
+Greta Thunberg: Why are young climate activists facing so much hate?
+--------------------------------------------------------------------
+URL: https://www.bbc.co.uk/news/world-49291464
+Author: https://www.facebook.com/bbcnews
+Publish Date: 2019-08-28T13:48:59Z
+Description: In the fractious climate debate, criticism of young activists has sometimes spiralled into abuse.
 
-Dutch doctor on trial in euthanasia case
-----------------------------------------
-URL: http://www.bbc.co.uk/news/world-europe-49478304
-Author: BBC News
-Publish Date: 2019-08-27T00:08:58Z
-Description: It is the first euthanasia case in the Netherlands involving a patient suffering from Alzheimer's.
+Climate change: Should you fly, drive or take the train?
+--------------------------------------------------------
+URL: https://www.bbc.co.uk/news/science-environment-49349566
+Author: https://www.facebook.com/bbcnews
+Publish Date: 2019-08-23T23:37:03Z
+Description: How should you travel to reduce your carbon footprint?
 
-The village surviving a drought on cave water
----------------------------------------------
-URL: http://www.bbc.co.uk/news/49436917
-Author: BBC News
-Publish Date: 2019-08-26T23:08:53Z
-Description: In Indonesia's East Java province, government water trucks only deliver once or twice a month.
-
-.
-.
-.
+Pacific forum turns into row with Australia over climate goals
+--------------------------------------------------------------
+URL: https://www.bbc.co.uk/news/world-australia-49365918
+Author: https://www.facebook.com/bbcnews
+Publish Date: 2019-08-16T03:29:40Z
+Description: Small Pacific nations tell the region's biggest emitter it should be more focused on "saving" people.
 ```
 
 A list of sources can be found at https://newsapi.org/sources

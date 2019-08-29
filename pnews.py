@@ -1,8 +1,8 @@
 import argparse
 import configparser
 import json
+import newsapi
 import sys
-from newsapi import NewsApiClient
 
 def read_file(file_path):
     f = open(file_path, 'r')
@@ -29,15 +29,15 @@ def get_separator(len):
 
 def print_header(page, query=None, site=None):
     page_str = str(page)
-    header = ''
+    header = 'Top ' + page_str + ' articles '
     if query is None and site is None:
-        header = 'Top ' + page_str + ' articles from all sources'
+        header += 'from all sources'
     elif query is None and site is not None:
-        header = 'Top ' + page_str + ' articles from ' + site
+        header += 'from ' + site
     elif query is not None and site is None:
-        header = 'Top ' + page_str + ' articles about ' + query + ' from all sources'
+        header += 'about ' + query + ' from all sources'
     else:
-        header = 'Top ' + page_str + ' articles about ' + query + ' from ' + site
+        header += 'about ' + query + ' from ' + site
     print(header)
     print(get_separator(len(header)))
     print()
@@ -76,7 +76,7 @@ def main():
             'Please see list of supported sources at https://newsapi.org/sources')
 
     # call api
-    news = NewsApiClient(api_key=api_key)
+    news = newsapi.NewsApiClient(api_key=api_key)
 
     if query == 'top':
         headlines = news.get_top_headlines(sources=site, language='en', page_size=page)
