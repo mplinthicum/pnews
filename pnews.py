@@ -15,8 +15,9 @@ def read_file(file_path):
 
 def get_cmd_input():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-q', '--query')
-    parser.add_argument('-s', '--site')
+    parser.add_argument('-q', '--query', default='top')
+    parser.add_argument('-s', '--site', default=None)
+    parser.add_argument('-p', '--page', default=5, type=int)
 
     return parser.parse_args()
 
@@ -26,7 +27,17 @@ def get_separator(len):
         separator += '-'
     return separator
 
-def print_header(header):
+def print_header(page, query=None, site=None):
+    page_str = str(page)
+    header = ''
+    if query is None and site is None:
+        header = 'Top ' + page_str + ' articles from all sources'
+    elif query is None and site is not None:
+        header = 'Top ' + page_str + ' articles from ' + site
+    elif query is not None and site is None:
+        header = 'Top ' + page_str + ' articles about ' + query + ' from all sources'
+    else:
+        header = 'Top ' + page_str + ' articles about ' + query + ' from ' + site
     print(header)
     print(get_separator(len(header)))
     print()
@@ -56,20 +67,23 @@ def main():
     countries = read_file(countries_file)
 
     args = get_cmd_input()
+    page = args.page
+    site = args.site
+    query = args.query
 
-    if args.site not in sources:
-        sys.exit('Source ' + args.site + ' is not supported\n' +
+    if site is not None and site not in sources:
+        sys.exit('Source ' + site + ' is not supported\n' +
             'Please see list of supported sources at https://newsapi.org/sources')
 
     # call api
     news = NewsApiClient(api_key=api_key)
 
-    if args.query == 'top':
-        headlines = news.get_top_headlines(sources=args.site, language='en')
-        print_header('Top news articles from ' + args.site)
+    if query == 'top':
+        headlines = news.get_top_headlines(sources=site, language='en', page_size=page)
+        print_header(page, site=site, )
     else:
-        headlines = news.get_everything(q=args.query, sources=args.site, language='en', page_size=10)
-        print_header('News articles about ' + args.query + ' from ' + args.site)
+        headlines = news.get_everything(q=query, sources=site, language='en', page_size=page)
+        print_header(page, site=site, query=query)
 
     for article in headlines['articles']:
         print_output(article)
